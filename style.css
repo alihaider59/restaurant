@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+.flash::backdrop{
+    opacity: 15%;
+}
+
 .container {
     max-width: 1200px;
 }
@@ -41,8 +45,12 @@ body {
 }
 
 .mainnav {
-    margin: 18px 0;
-    padding: 0 100px;
+    background: whitesmoke;
+    position: sticky;
+    top: 0px;
+    padding: 18px 100px;
+    z-index: 3;
+
 }
 
 .container-fluid {
@@ -754,33 +762,16 @@ body {
     margin-right: 8px;
 }
 
+#bar {
+    display: none;
+}
+
+#close {
+    display: none;
+}
+
+
 /* MEDIA QUERIES */
-
-@media (max-width: 1440px) {
-
-    #hero #txt-content {
-        height: 150vh;
-    }
-
-    #section1 {
-
-        min-height: 800px;
-        width: auto;
-
-    }
-
-    #section2 {
-        padding: 130px 0 140px;
-
-    }
-}
-
-@media (max-width: 1040px) {
-
-    .mainnav {
-        padding: 0 30px;
-    }
-}
 
 * {
     margin: 0;
@@ -797,8 +788,9 @@ img {
     display: block;
 }
 
-/* =============== Desktop (1440px and below) =============== */
+
 @media (max-width: 1440px) {
+
     #hero #txt-content {
         height: 150vh;
     }
@@ -813,30 +805,95 @@ img {
     }
 }
 
-@media (max-width: 768px) {
-    #hero #txt-content {
-        height: 150vh;
+@media (max-width: 1024px) {
+
+    #section2,
+    #section5 {
+        padding: 60px 15px;
+    }
+
+    #manimg {
+        width: 450px;
+        height: 550px;
     }
 
     #section1 {
-        min-height: 800px;
+        min-height: 500px;
         width: 100%;
     }
 
-    #section2 {
-        padding: 130px 0 140px;
-    }
-}
-
-/* =============== Large Tablets (1040px and below) =============== */
-@media (max-width: 1040px) {
     .mainnav {
         padding: 0 30px;
     }
+
+    #hero {
+        padding: 0 50px;
+    }
+
+    #hero h1 {
+        font-size: 60px;
+    }
+
+    #section2 {
+        padding: 80px 0;
+    }
+
+    #section2 h1 {
+        font-size: 35px;
+    }
+
+    #icons {
+        gap: 0px;
+    }
+
+    #icons .img-cont {
+        margin-bottom: 20px;
+        width: 80%;
+    }
+
 }
 
-/* =============== Tablets (991px and below) =============== */
+
 @media (max-width: 991px) {
+
+    #section1 {
+        min-height: 700px;
+        width: 100%
+    }
+
+    .icons .img-cont {
+        width: 100%;
+    }
+
+    #navbar1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -220px;
+        width: 220px;
+        background-color: #e3e6f3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 20px 0 0 10px;
+        transition: 0.3s;
+        z-index: 3;
+    }
+
+    #bar {
+        margin-top: 16px;
+        display: block;
+    }
+
+    #close {
+        display: block;
+    }
+
+    #navbar1.show {
+        right: 0;
+    }
+
     .mainnav {
         padding: 0 20px;
     }
@@ -851,13 +908,13 @@ img {
     #hero h1 {
         font-size: 48px;
         line-height: 4rem;
-        text-align: center;
+        text-align: left;
     }
 
     #hero p {
         width: 90%;
         margin: 0 auto;
-        text-align: center;
+        text-align: left;
     }
 
     #section2,
@@ -869,7 +926,7 @@ img {
     #section2 h1,
     #section5 .txt-content h2 {
         width: 100%;
-        text-align: center;
+        text-align: left;
         margin: 0 auto;
     }
 
@@ -887,6 +944,10 @@ img {
         margin-bottom: 20px;
     }
 
+    #section5 img {
+        display: flex;
+    }
+
     .sec3-txt {
         width: 90%;
         margin: 0 auto;
@@ -894,7 +955,7 @@ img {
 
     #section4 .sec4-imgs {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         align-items: center;
     }
 
@@ -902,13 +963,18 @@ img {
     #section4 .img2,
     #section4 .img3 {
         width: 100%;
-        height: auto;
+    }
+    #section4 .img1,
+    #section4 .img2 {
+        height: 80vh;
     }
 
-    #section4 .img-1,
-    #section4 .img-2 {
-        height: auto;
-    }
+
+        #section4 .img-1,
+        #section4 .img-2 {
+            margin-bottom: 10px;
+            width: 100%;
+        }
 
     #footer .f-content {
         display: flex;
@@ -924,33 +990,62 @@ img {
         gap: 10px;
         padding: 10px 0;
     }
+
+    #hero p,
+    #hero #span {
+        margin-bottom: 20px;
+    }
+
+    #section2 h1,
+    #section3 .sec3-txt h1,
+    #section5 .txt-content h2 {
+        margin-bottom: 15px;
+    }
+
+    #section2 .sec2,
+    #section5 .txt-content .p2 {
+        margin-bottom: 25px;
+    }
 }
 
-/* =============== Mobile Devices (767px and below) =============== */
 @media (max-width: 768px) {
+
+    #manimg {
+        width: 400px;
+        height: 500px;
+    }
+
+    #icons {
+        justify-content: center;
+    }
+
+    #hero #txt-content {
+        height: 70vh;
+    }
+
 
     #hero #txt-content {
         height: 90vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0 40px;
     }
 
 
     #contr {
-        display: flex;
-        justify-content: center;
+        display: flex;  
         align-items: center;
         flex-direction: column;
     }
 
     #section1 {
-        min-height: 700px;
+        min-height: 400px;
         width: 100%;
     }
 
     #section2 {
-        padding: 100px 0 100px;
+        padding: 60px 0 60px;
     }
 
     .mainnav {
@@ -965,14 +1060,14 @@ img {
     #hero h1 {
         font-size: 36px;
         line-height: 2.8rem;
-        text-align: center;
+        text-align: left;
     }
 
     #hero p,
     #hero #span {
         font-size: 13px;
         line-height: 22px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 20px;
     }
 
@@ -980,14 +1075,14 @@ img {
     #section3 .sec3-txt h1,
     #section5 .txt-content h2 {
         font-size: 28px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 15px;
     }
 
     #section2 .sec2,
     #section5 .txt-content .p2 {
         font-size: 13px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 25px;
     }
 
@@ -997,7 +1092,7 @@ img {
     }
 
     .txt-style span {
-        font-size: 18px;
+        font-size: 18px;    
     }
 
     .txt-style h4 {
@@ -1011,6 +1106,10 @@ img {
     .txt-style a {
         padding: 10px 20px;
         font-size: 13px;
+    }
+
+    #section5 {
+        padding-top: 30px;
     }
 
     #section5 .txt-content {
@@ -1037,20 +1136,29 @@ img {
     .txt-content,
     .sec2,
     .sec3-txt {
-        text-align: center;
+        text-align: left;
         margin: 0 auto;
     }
 
+    .sec3-txt p {
+        text-align: center;
+    }
+
+    .sec3-content {
+        padding-top: 40px;
+        padding-bottom: 40px
+    }
+
     .img-cont,
-    #section5 .img,
     #section4 .sec4-imgs,
     #section4 .img1,
     #section4 .img2,
     #section4 .img3 {
         margin: 0 auto;
+    }
+
+    #section5 .img {
         display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     #section2,
@@ -1059,32 +1167,36 @@ img {
     #section4 {
         padding-left: 10px;
         padding-right: 10px;
-        text-align: center;
+        text-align: left;
     }
 
     #footer .f-content {
         flex-wrap: wrap;
         align-items: center;
-        text-align: center;
-    }
-
-    #footer .logo img {
-        width: 100%;
+        text-align: left;
     }
 }
 
-/* =============== Small Phones (425px and below) =============== */
+
 @media (max-width: 425px) {
 
+    #hero {
+        padding: 0;
+    }
+
     img {
-        width: 100%;
         height: auto;
         display: block;
     }
 
     #hero h1 {
         font-size: 30px;
-        line-height: 2.5rem;
+        line-height: 2rem;
+        margin-bottom: 15px;
+    }
+
+    #section2 .container {
+        padding: 0;
     }
 
     #hero p {
@@ -1108,19 +1220,21 @@ img {
         width: 400px;
         height: 500px;
     }
+
     #section5 .content .img img {
         width: 400px;
     }
 
-    #sec2-content, #section5 .content {
+    #sec2-content,
+    #section5 .content {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
+
     }
 }
 
-/* =============== Extra Small Phones (375px and below) =============== */
+
 @media (max-width: 375px) {
     .mainnav {
         padding: 0 8px;
@@ -1147,14 +1261,16 @@ img {
         width: 350px;
         height: 475px;
     }
+
     #section5 .content .img img {
         width: 350px;
     }
 
-    #sec2-content, #section5 .content {
+    #sec2-content,
+    #section5 .content {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
+
     }
 }
